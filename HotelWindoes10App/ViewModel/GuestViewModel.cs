@@ -97,7 +97,7 @@ namespace HotelWindoes10App.ViewModel
 
         }
 
-       
+
 
         public GuestViewModel()
         {
@@ -106,7 +106,7 @@ namespace HotelWindoes10App.ViewModel
             GuestHandler = new Handler.GuestHandler(this);
 
             createGuestCommand = new RelayCommand(GuestHandler.CreateGuest, null);
-            deleteGuestCommand = new RelayCommand(GuestHandler.DeleteGuest, IsEventEmpty);
+            //deleteGuestCommand = new RelayCommand(GuestHandler.DeleteGuest, IsEventEmpty);
 
 
             GuestCatalogSingleton = GuestCatalogSingleton.Instance;

@@ -106,8 +106,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="ViewModel\GuestViewModel.cs" />
-    <Compile Include="View\Frontpage.xaml.cs">
-      <DependentUpon>Frontpage.xaml</DependentUpon>
+    <Compile Include="View\CreateGuestPage.xaml.cs">
+      <DependentUpon>CreateGuestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GuestPage.xaml.cs">
       <DependentUpon>GuestPage.xaml</DependentUpon>
@@ -134,7 +134,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\Frontpage.xaml">
+    <Page Include="View\CreateGuestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,9 +20,9 @@ namespace HotelWindoes10App.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Frontpage : Page
+    public sealed partial class CreateGuestPage : Page
     {
-        public Frontpage()
+        public CreateGuestPage()
         {
             this.InitializeComponent();
         }

@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ViewModel="using:HotelWindoes10App.ViewModel"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="HotelWindoes10App.View.GuestPage"
     mc:Ignorable="d">
     <Page.TopAppBar>
@@ -12,7 +13,13 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Icon="Accept" Label="appbarbutton"/>
+            <AppBarButton Icon="Add" Label="appbarbutton" ToolTipService.ToolTip="Opret ny Gæst">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="HotelWindoes10App.View.CreateGuestPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </AppBarButton>
             <AppBarButton Icon="Cancel" Label="appbarbutton"/>
         </CommandBar>
     </Page.TopAppBar>
@@ -23,10 +30,11 @@
 
     <Viewbox>
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="900" Width="1300">
-        <ListView HorizontalAlignment="Left" Height="675" Margin="83,90,0,0" VerticalAlignment="Top" Width="554" ItemsSource="{Binding GuestCatalogSingleton.Guests}"/>
-        <Button Content="Ny gæst" HorizontalAlignment="Left" Margin="83,810,0,0" VerticalAlignment="Top" Height="52" Width="293"/>
+            <ListView HorizontalAlignment="Left" Height="603" Margin="83,162,0,0" VerticalAlignment="Top" Width="554" ItemsSource="{Binding GuestCatalogSingleton.Guests}"/>
+            <TextBox HorizontalAlignment="Left" Margin="83,82,0,0" TextWrapping="Wrap" Text="Alle Gæster" VerticalAlignment="Top" Width="338" Height="76" FontSize="35"/>
 
 
-    </Grid>
-        </Viewbox>
+
+        </Grid>
+    </Viewbox>
 </Page>

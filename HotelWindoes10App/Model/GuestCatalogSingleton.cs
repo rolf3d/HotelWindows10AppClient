@@ -15,7 +15,8 @@ namespace HotelWindoes10App.Model
         // server url
         const string serverUrl = "http://hotelwsrolf.azurewebsites.net";
 
-        public PersistencyService ps;
+        //public PersistencyService ps;
+        
 
         private ObservableCollection<Guest> guests;
 
@@ -24,7 +25,6 @@ namespace HotelWindoes10App.Model
             get { return guests; }
             set { guests = value; }
         }
-
         private ObservableCollection<Guest> slettetGuests;
 
         public ObservableCollection<Guest> SlettetGuests
@@ -54,11 +54,9 @@ namespace HotelWindoes10App.Model
         {
             Guests = new ObservableCollection<Guest>();
             SlettetGuests = new ObservableCollection<Guest>();
-            ps = new PersistencyService();
-            //deletedev = new PersistencyServiceDeletet();
-            // Kan bruges som test date, for at se om listview er bindet rigtigt.
-            //Event minEvent = new Event(01, "Fest", "Mega Stor Fest", "Her", new DateTime(2016, 05, 25));
-            //Events.Add(minEvent);
+            //ps = new PersistencyService();
+            
+            
 
             LoadGuestsAsync();
 
@@ -104,7 +102,7 @@ namespace HotelWindoes10App.Model
             //PersistencyServiceDeletet.SaveEventsAsJsonAsync(SlettetEvents);
 
         }
-        
+
         public async void LoadGuestsAsync()
         {
 
