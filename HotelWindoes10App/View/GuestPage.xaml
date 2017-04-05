@@ -30,7 +30,7 @@
 
     <Viewbox>
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="900" Width="1300">
-            <ListView HorizontalAlignment="Left" Height="603" Margin="83,162,0,0" VerticalAlignment="Top" Width="554" ItemsSource="{Binding GuestCatalogSingleton.Guests}"/>
+            <ListView HorizontalAlignment="Left" Height="603" Margin="83,162,0,0" VerticalAlignment="Top" Width="554" ItemsSource="{Binding GuestColletion}"/>
             <TextBox HorizontalAlignment="Left" Margin="83,82,0,0" TextWrapping="Wrap" Text="Alle Gæster" VerticalAlignment="Top" Width="338" Height="76" FontSize="35"/>
 
 

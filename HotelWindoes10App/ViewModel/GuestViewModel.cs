@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,12 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using HotelWindoes10App.Commen;
 using HotelWindoes10App.Model;
+using HotelWindoes10App.Persistency;
 
 namespace HotelWindoes10App.ViewModel
 {
     public class GuestViewModel : INotifyPropertyChanged
     {
-        public GuestCatalogSingleton GuestCatalogSingleton { get; set; }
+        public Singleton GuestCatalogSingleton { get; set; }
+
+        private ObservableCollection<Guest> _guestCollection;
+        public ObservableCollection<Guest> GuestColletion
+        {
+            get { return _guestCollection; }
+            set { _guestCollection = value; }
+        }
+
 
         private int guest_No;
 
@@ -86,15 +96,23 @@ namespace HotelWindoes10App.ViewModel
 
 
 
-        public bool IsEventEmpty()
+        //public bool IsEventEmpty()
+        //{
+
+        //    if (Singleton.Instance.Guests.Count > 0 && Singleton.Instance.Guests.Contains(SelectedGuest))
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+
+        //}
+
+        private PersistencyService persistencyService;
+
+        public PersistencyService PersistencyService
         {
-
-            if (GuestCatalogSingleton.Instance.Guests.Count > 0 && GuestCatalogSingleton.Instance.Guests.Contains(SelectedGuest))
-            {
-                return true;
-            }
-            return false;
-
+            get { return persistencyService; }
+            set { persistencyService = value; }
         }
 
 
@@ -102,14 +120,15 @@ namespace HotelWindoes10App.ViewModel
         public GuestViewModel()
         {
            
+            GuestColletion = Singleton.Instance.Guests;
 
             GuestHandler = new Handler.GuestHandler(this);
-
-            createGuestCommand = new RelayCommand(GuestHandler.CreateGuest, null);
+            persistencyService = new PersistencyService();
+            //createGuestCommand = new RelayCommand(GuestHandler.CreateGuest, null);
             //deleteGuestCommand = new RelayCommand(GuestHandler.DeleteGuest, IsEventEmpty);
 
 
-            GuestCatalogSingleton = GuestCatalogSingleton.Instance;
+            //GuestCatalogSingleton = Singleton.Instance;
         }
 
 
